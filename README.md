@@ -1,1 +1,62 @@
-# acg
+Adverserial search using alpa beta
+
+def alphabeta(depth, node, maxPlayer, values, alpha, beta):
+
+    if depth == 2:
+        return values[node]
+
+    if maxPlayer:
+        best = -1000
+
+        for i in range(2):
+            val = alphabeta(depth + 1, node * 2 + i,
+                            False, values, alpha, beta)
+
+            best = max(best, val)
+            alpha = max(alpha, best)
+
+            if beta <= alpha:
+                break
+
+        return best
+
+    else:
+        best = 1000
+
+        for i in range(2):
+            val = alphabeta(depth + 1, node * 2 + i,
+                            True, values, alpha, beta)
+
+            best = min(best, val)
+            beta = min(beta, best)
+
+            if beta <= alpha:
+                break
+
+        return best
+
+
+values = [3, 5, 6, 9]
+
+result = alphabeta(0, 0, True, values, -1000, 1000)
+
+print("Optimal Value =", result)
+
+
+
+
+Tower og hanoi
+
+def tower_hanoi(n, a, b, c):
+    if n == 1:
+        print("Move disk 1 from", a, "to", c)
+        return
+
+    tower_hanoi(n - 1, a, c, b)
+
+    print("Move disk", n, "from", a, "to", c)
+
+    tower_hanoi(n - 1, b, a, c)
+
+
+tower_hanoi(3, "S", "H", "D")
