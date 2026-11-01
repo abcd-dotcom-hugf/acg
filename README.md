@@ -1,13 +1,4 @@
 Adverserial search using alpa beta:
-
-
-
-
-
-
-
-
-
 def alphabeta(depth, node, maxPlayer, values, alpha, beta):
     if depth == 2:
         return values[node]
@@ -47,7 +38,7 @@ print("Optimal Value =", result)
 
 
 
-Tower og hanoi:
+Tower of hanoi:
 
 def tower_hanoi(n, a, b, c):
     if n == 1:
